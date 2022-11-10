@@ -1,21 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".FirstFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Tämä on kotisivu.." />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/idPBLoading"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/idRLHome"
+            android:visibility="visible"
+            >
 
-</FrameLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@color/mustaShade"
+                    android:id="@+id/idIVMusta"
+                    />
+
+                <TextView
+                    android:id="@+id/idKaupunginNimi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4sp"
+                    android:gravity="center"
+                    android:padding="20sp"
+                    android:text="Tämänhetkinen kaupunki"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/idHakukenntta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/idKaupunginNimi"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                                android:id="@+id/idTILCity"
+                                android:layout_width="0sp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10sp"
+                                android:layout_weight="4.5"
+                                android:background="@android:color/transparent"
+                                android:hint="Kirjoita kaupungin nimi"
+                                android:padding="5sp"
+                                android:textColorHint="@color/white"
+                                app:hintTextColor="@color/white">
+                                ></com.google.android.material.textfield.TextInputLayout>
+
+                        <ImageView
+                            android:id="@+id/idEtsiKentta"
+                            android:layout_width="0sp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10sp"
+                            android:layout_weight="0.5"
+                            android:background="@android:color/transparent"
+                             />
+
+                </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+
+</RelativeLayout>

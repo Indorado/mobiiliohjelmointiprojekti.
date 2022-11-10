@@ -17,11 +17,14 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view=inflater.inflate(R.layout.fragment_first, container, false)
+       /* Tämä pois käytyöstä UI:n tekoa varten -> text view puuttuu fragmentista 1
         val textField1=view.findViewById<TextView>(R.id.textView1)
 
         textField1.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.navigateToSecond)
         }
+       * */
+
 
         return view
     }
