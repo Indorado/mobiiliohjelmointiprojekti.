@@ -83,7 +83,7 @@ tools:context=".FirstFragment">
                                     android:singleLine="true"
                                     android:textColor="@color/white"
                                     android:textSize="13.2sp"
-                                    android:padding="10sp"
+                                    android:padding="15sp"
                                     />
 
                         </com.google.android.material.textfield.TextInputLayout>
