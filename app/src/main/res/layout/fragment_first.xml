@@ -22,12 +22,11 @@ tools:context=".FirstFragment">
             >
 
                 <ImageView
+                    android:id="@+id/idIVMusta"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@color/mustaShade"
-                    android:id="@+id/idIVMusta"
-                    />
+                    android:src="@color/mustaShade" />
 
                 <TextView
                     android:id="@+id/idNykyinenKaupunki"
