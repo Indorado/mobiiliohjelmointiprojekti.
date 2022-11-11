@@ -30,49 +30,65 @@ tools:context=".FirstFragment">
                     />
 
                 <TextView
-                    android:id="@+id/idKaupunginNimi"
+                    android:id="@+id/idNykyinenKaupunki"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4sp"
                     android:gravity="center"
                     android:padding="20sp"
-                    android:text="Tämänhetkinen kaupunki"
+                    android:text="Tämänhetkinen sijainti"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_below="@id/idHakukenntta"
+                    />
 
                 <LinearLayout
                     android:id="@+id/idHakukenntta"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/idKaupunginNimi"
                     android:orientation="horizontal"
                     android:weightSum="5">
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                                android:id="@+id/idTILCity"
-                                android:layout_width="0sp"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10sp"
-                                android:layout_weight="4.5"
-                                android:background="@android:color/transparent"
-                                android:hint="Kirjoita kaupungin nimi"
-                                android:padding="5sp"
-                                android:textColorHint="@color/white"
-                                app:hintTextColor="@color/white">
-                                ></com.google.android.material.textfield.TextInputLayout>
-
                         <ImageView
-                            android:id="@+id/idEtsiKentta"
-                            android:layout_width="0sp"
+                            android:id="@+id/idEtsiLogo"
+                            android:layout_width="25sp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_margin="10sp"
                             android:layout_weight="0.5"
                             android:background="@android:color/transparent"
-                             />
+                            android:src="@drawable/ic_etsi_logo_icons8"
+                            app:tint="@color/white"
+                            />
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/idHakuKaupunki"
+                            android:layout_margin="0.5sp"
+                            android:layout_weight="4.5"
+                            android:background="@android:color/transparent"
+                            android:hint="Etsi"
+                            android:padding="0sp"
+                            android:textColorHint="@color/design_default_color_on_primary"
+                            app:hintTextColor="@color/white">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/IDMuokkaaKaupunkia"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@android:color/transparent"
+                                    android:importantForAutofill="no"
+                                    android:inputType="text"
+                                    android:singleLine="true"
+                                    android:textColor="@color/white"
+                                    android:textSize="13.2sp"
+                                    android:padding="10sp"
+                                    />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
 
                 </LinearLayout>
 
