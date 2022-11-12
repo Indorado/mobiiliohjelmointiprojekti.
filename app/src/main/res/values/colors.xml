@@ -8,5 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="mustaShade">#292D36</color> //tämä lisättiin
+    <color name="VaaleaSininenTausta">#6893EE</color> //tämä lisättiin
 </resources>
