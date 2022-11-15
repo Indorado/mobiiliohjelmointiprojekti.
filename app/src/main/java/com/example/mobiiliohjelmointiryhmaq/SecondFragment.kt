@@ -19,12 +19,12 @@ class SecondFragment : Fragment() {
         // Inflate the layout for this fragment
         val view=inflater.inflate(R.layout.fragment_second, container, false)
 
-        val textField2=view.findViewById<TextView>(R.id.textView2)
+/* Tämä pois käytyöstä UI:n tekoa varten ->  val textField2=view.findViewById<TextView>(R.id.textView2)
 
-        textField2.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.navigateToFirst)
-        }
+ textField2.setOnClickListener {
+     Navigation.findNavController(view).navigate(R.id.navigateToFirst)
+ }*/
 
-        return view
-    }
+ return view
+}
 }

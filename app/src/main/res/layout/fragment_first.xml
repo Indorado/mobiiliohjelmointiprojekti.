@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".FirstFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
 
         <ProgressBar
             android:layout_width="wrap_content"
@@ -99,8 +99,7 @@ tools:context=".FirstFragment">
                     android:padding="5sp"
                     android:text="20"
                     android:textColor="@color/white"
-                    android:textSize="70sp"
-                    />
+                    android:textSize="70sp" />
 
                 <ImageView
                     android:id="@+id/idSaaTila"
@@ -108,7 +107,10 @@ tools:context=".FirstFragment">
                     android:layout_height="wrap_content"
                     android:layout_below="@id/idLampotila"
                     android:layout_centerHorizontal="true"
-                    android:layout_margin="5sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="5sp"
                     android:src="@mipmap/ic_launcher" />
 
                 <TextView
@@ -132,14 +134,14 @@ tools:context=".FirstFragment">
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     />
+
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/idRecycleSaaEnnuste"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/idRecycleSaaEnnuste"
                     android:layout_alignParentBottom="true"
                     android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    />
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         </RelativeLayout>
 
