@@ -42,6 +42,24 @@
             android:layout_marginBottom="5sp"
             android:src="@drawable/vesipisara" />
 
+        <TextView
+            android:id="@+id/idKosteus"
+            android:layout_width="wrap_content"
+            android:layout_height="91dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="420dp"
+            android:layout_marginEnd="127dp"
+            android:layout_marginBottom="10sp"
+            android:gravity="right"
+            android:padding="5sp"
+            android:text="20"
+            android:textColor="@color/black"
+            android:textSize="70sp" />
+
+
         <ImageView
             android:id="@+id/idTuuli"
             android:layout_width="75dp"
@@ -56,14 +74,14 @@
             android:src="@drawable/tuuli" />
 
         <TextView
-            android:id="@+id/idLampotila4"
+            android:id="@+id/idTuuliArvo"
             android:layout_width="wrap_content"
             android:layout_height="91dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="49dp"
-            android:layout_marginTop="222dp"
+            android:layout_marginTop="525dp"
             android:layout_marginEnd="127dp"
             android:layout_marginBottom="10sp"
             android:gravity="right"
@@ -72,11 +90,13 @@
             android:textColor="@color/black"
             android:textSize="70sp" />
 
+
+
         <TextView
-            android:id="@+id/iddate"
+            android:id="@+id/idDate"
             android:layout_width="262dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/idHakukenntta"
+            android:layout_below="@id/idHakukentta"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="54dp"
@@ -94,7 +114,7 @@
             android:id="@+id/idNykyinenKaupunki"
             android:layout_width="259dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/idHakukenntta"
+            android:layout_below="@id/idHakukentta"
             android:layout_alignParentStart="true"
             android:layout_marginStart="54dp"
             android:layout_marginTop="43dp"
@@ -110,7 +130,7 @@
             android:id="@+id/idNykyinenMaa"
             android:layout_width="264dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/idHakukenntta"
+            android:layout_below="@id/idHakukentta"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="54dp"
@@ -125,7 +145,7 @@
             tools:ignore="RtlCompat" />
 
         <LinearLayout
-            android:id="@+id/idHakukenntta"
+            android:id="@+id/idHakukentta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -154,8 +174,9 @@
                 android:textColorHint="@color/black"
                 app:hintTextColor="@color/black">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/idMuokkaaKaupunkia"
+                    android:ems="15"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
@@ -165,6 +186,13 @@
                     android:singleLine="true"
                     android:textColor="@color/black"
                     android:textSize="13.2sp" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HAE"
+                    android:id="@+id/btnGet"
+                    android:onClick="getData">
+                </Button>
 
             </com.google.android.material.textfield.TextInputLayout>
 
