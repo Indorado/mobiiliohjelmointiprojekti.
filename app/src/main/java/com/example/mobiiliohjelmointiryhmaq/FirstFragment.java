@@ -40,7 +40,7 @@ public class FirstFragment extends AppCompatActivity {
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
     String str = formatter.format(date);
 
-    private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Kuopio&units=metric&appid=3b8f9987ddadf8e26fcaa86cef8bfd62";
+    private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Kuopio&units=metric&appid=a012a806d418509506a86dcde2dc62bb";
     // Tästä tehdään GPS homma jos ehtii..
 
     @Override

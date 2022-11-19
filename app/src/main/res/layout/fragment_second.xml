@@ -162,6 +162,7 @@
                 android:src="@drawable/ic_etsi_logo_icons8"
                 app:tint="@color/black"
                 />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -176,16 +177,17 @@
 
                 <EditText
                     android:id="@+id/idMuokkaaKaupunkia"
-                    android:ems="15"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
+                    android:ems="15"
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:padding="15sp"
                     android:singleLine="true"
                     android:textColor="@color/black"
-                    android:textSize="13.2sp" />
+                    android:textSize="13.2sp"
+                    tools:ignore="SpeakableTextPresentCheck" />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -222,9 +224,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="49dp"
-            android:layout_marginTop="179dp"
-            android:layout_marginEnd="260dp"
+            android:layout_marginStart="51dp"
+            android:layout_marginTop="177dp"
+            android:layout_marginEnd="258dp"
             android:layout_marginBottom="5sp"
             android:src="@drawable/aurinko" />
 
@@ -241,26 +243,6 @@
             android:text="EHTO"
             android:textAlignment="center"
             android:textColor="@color/black" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/idRecycleSaaEnnuste"
-            android:layout_marginStart="8sp"
-            android:layout_marginTop="8sp"
-            android:layout_marginEnd="8sp"
-            android:layout_marginBottom="8sp"
-            android:text="Tämänhetkinen sää"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/idRecycleSaaEnnuste"
-            android:layout_alignParentBottom="true"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            />
 
     </RelativeLayout>
 
