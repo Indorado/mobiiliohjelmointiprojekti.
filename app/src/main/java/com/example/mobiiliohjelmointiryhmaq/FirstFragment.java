@@ -24,10 +24,6 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-// Tämä JAVA tiedosto on sitä varten että sovellusta aukaistaessa tulee lataus ympyrä pyörimään
-// saadaan xml tiedostosta käyttöön tiedot tätä kautta.
-// tämän lisäksi pitää firstFragment.xml tiedostoon lisätä muutama juttu
-
 
 
 public class FirstFragment extends AppCompatActivity {
