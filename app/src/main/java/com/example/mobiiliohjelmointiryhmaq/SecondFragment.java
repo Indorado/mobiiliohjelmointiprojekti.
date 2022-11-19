@@ -26,7 +26,7 @@ public class SecondFragment extends AppCompatActivity {
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
     String str = formatter.format(date);
 
-
+    // Yritetään saada näppäimistö katoamaan itsekseen, kun "hae" nappia on painettu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -70,13 +70,13 @@ public class SecondFragment extends AppCompatActivity {
                     String currentWeather = jsonMain.getString("temp");// LÄMPÖTILA
                     String cityName = jsonResponse.getString("name");// KAUPUNKI
 
-                    lampotila.setText(currentWeather);
-                    nykyinenKaupunki.setText(cityName);
+                    lampotila.setText(currentWeather + " °C");
+                    nykyinenKaupunki.setText(cityName + ",");
                     nykyinenMaa.setText(maa);
-                    tuulenNps.setText(wind);
-                    ilmanKst.setText(humidity);
+                    tuulenNps.setText(wind + " m/s");
+                    ilmanKst.setText(humidity + "g/m³");
                     pvm.setText(str);
-                    //tuntuuKuin.setText(feelsLike);
+                    //tuntuuKuin.setText(feelsLike + " °C");
 
                 } catch (Exception e) {
                     e.printStackTrace();

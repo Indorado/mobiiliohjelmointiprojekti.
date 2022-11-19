@@ -24,14 +24,14 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
+// Kuvioita ja fontteja voisi pienentää?
 
 public class FirstFragment extends AppCompatActivity {
     private Button button; // Mennään seuravaan näyttöön.
 
     private RelativeLayout Koti;
     private ProgressBar LadataanSivu;
-    private TextView KaupunginNimi, Lampotila, Ehto, pvm;
+    private TextView KaupunginNimi, Lampotila, Ehto, pvm, tuntuuKuin, tuulenNps, ilmanKst, nykyinenMaa;
     private TextInputEditText MuokkaaKaupunkia;
     private ImageView TaustaVariIV, SaaTilaIV, EtsiLogoIV;
     private RecyclerView RecycleSaaEnnuste;
@@ -43,6 +43,7 @@ public class FirstFragment extends AppCompatActivity {
     private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Kuopio&units=metric&appid=a012a806d418509506a86dcde2dc62bb";
     // Tästä tehdään GPS homma jos ehtii..
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -53,6 +54,11 @@ public class FirstFragment extends AppCompatActivity {
         Lampotila = findViewById(R.id.idLampotila);
         TaustaVariIV = findViewById(R.id.idTaustaVari);
         SaaTilaIV = findViewById(R.id.idSaaTila);
+        tuntuuKuin = findViewById(R.id.TuntuuKuinTeksti);
+        tuulenNps = findViewById(R.id.TuulenVoimakkuusTeksti);
+        ilmanKst = findViewById(R.id.IlmankosteusTeksti);
+        nykyinenMaa = findViewById(R.id.idMaa);
+
         pvm = findViewById(R.id.idDate);
         button = (Button) findViewById(R.id.idHaeLisaaBtn);
 
@@ -63,15 +69,6 @@ public class FirstFragment extends AppCompatActivity {
         //MuokkaaKaupunkia = findViewById(R.id.idMuokkaaKaupunkia);
         //RecycleSaaEnnuste = findViewById(R.id.idRecycleSaaEnnuste);
         //EtsiLogoIV = findViewById(R.id.idEtsiLogo);
-
-        //---------------------------------
-        //NÄMÄ TARVITAAN VIELÄ ULKOASUUN!
-        //Maa = findViewById(R.id.idNykyinenMaa);
-        //Paivamaara = findViewById(R.id.idPaivamaara);
-        //Kosteus = findViewById(R.id.idKosteus);
-        //Tuuli = findViewById(R.id.idTuuli);
-        //TuntuuKuin = findViewById(R.id.idTuntuuKuin);
-
 
         getData();
         // Toinen sivu
@@ -91,10 +88,29 @@ public class FirstFragment extends AppCompatActivity {
             Log.e("Res: ", response);
 
             try {
-                JSONObject jsonObject = new JSONObject(response);
-                JSONObject jsonMain = jsonObject.getJSONObject("main");
-                String currentWeather = jsonMain.getString("temp");
-                Lampotila.setText(currentWeather);
+                // Haetaan rajapinnan taulu tietyn kaupungin säätilasta
+                JSONObject jsonResponse = new JSONObject(response);
+
+                // Haetaan taulun sisällä olevia tauluja
+                JSONObject jsonMain = jsonResponse.getJSONObject("main");
+                JSONObject jsonObjectSys = jsonResponse.getJSONObject("sys");
+                JSONObject jsonWind = jsonResponse.getJSONObject("wind");
+
+                // Haetaan taulun sisällä olevien taulujen objecteja
+                String currentWeather = jsonMain.getString("temp"); // LÄMPÖTILA
+                String wind = jsonWind.getString("speed");// TUULENNOPEUS
+                String humidity = jsonMain.getString("humidity");// KOSTEUS
+                String feelsLike = jsonMain.getString("feels_like"); // TUNTUU KUIN
+                String maa = jsonObjectSys.getString("country");// MAA
+                // String cityName = jsonResponse.getString("name");// KAUPUNKI
+
+                // Määritetään tekstit
+                Lampotila.setText(currentWeather + " °C");
+                tuntuuKuin.setText(feelsLike + " °C");
+                tuulenNps.setText(wind + " m/s");
+                ilmanKst.setText(humidity + "g/m³");
+                nykyinenMaa.setText(maa);
+
                 pvm.setText(str);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -105,7 +121,7 @@ public class FirstFragment extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-        KaupunginNimi.setText("Kuopio");//Voidaan mahdollisesti hakea GPS avulla, jos jää aikaa.
+        KaupunginNimi.setText("Kuopio,");//Voidaan mahdollisesti hakea GPS avulla, jos jää aikaa.
     }
     // Lähdetään toiselle sivulle
     public void SecondFragment() {
