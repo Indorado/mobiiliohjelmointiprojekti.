@@ -270,13 +270,9 @@
                                     android:text=" g/m³"
                                     android:textSize="20sp"/>
                         </RelativeLayout>
-
                 </androidx.cardview.widget.CardView>
 
-
-
         </RelativeLayout>
-
         <!--Napista pääsee toiselle sivullem jossa voi hakea uuden kaupungin säätilan-->
         <RelativeLayout
             android:id="@+id/idHakuNappi"
