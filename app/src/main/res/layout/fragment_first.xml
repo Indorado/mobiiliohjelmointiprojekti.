@@ -53,7 +53,6 @@
                     android:text="Kaupunki"
                     android:textColor="@color/black"
                     android:textSize="25sp" />
-
                 <TextView
                     android:id="@+id/idMaa"
                     android:layout_width="264dp"
@@ -85,19 +84,7 @@
                     android:textColor="@color/black"
                     android:textSize="60sp" />
 
-                <TextView
-                    android:id="@+id/idDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10sp"
-                    android:layout_marginTop="500sp"
-                    android:layout_marginEnd="10sp"
-                    android:layout_marginBottom="10sp"
-                    android:gravity="center_horizontal"
-                    android:padding="5sp"
-                    android:text="pvm"
-                    android:textColor="@color/white"
-                    android:textSize="50sp" />
+
 
                 <!--Onnistuiskohan tässä käyttää niitä openweatherin säätilan kuvakkeita -->
                 <ImageView
@@ -113,28 +100,180 @@
                     android:src="@mipmap/ic_launcher" />
 
 
-                <!--Tuntuu kuin, tuuli, ilmankosteus yms.-->
-                <TextView
-                    android:id="@+id/idTuntuuKuin"
-                    android:layout_width="match_parent"
+                <!--Kortti 1-->
+                <!-- kuvalaatikot-->
+                <androidx.cardview.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/Kuvakortti1"
+                    android:layout_below="@id/idLampotila"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/idSaaTila"
-                    android:layout_marginStart="100sp"
-                    android:layout_marginEnd="80sp"
-                    android:text="Tuntuu kuin"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:layout_marginLeft="20sp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardElevation="8dp"
+                    app:cardMaxElevation="10dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
 
-                <TextView
-                    android:id="@+id/idKosteus"
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="120sp">
+
+                                <!-- Tässä on kuvake korttiin 1 -->
+                                <ImageView
+                                    android:id="@+id/idKuvake"
+                                    android:layout_width="120dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="0.5sp"
+                                    android:layout_marginBottom="15sp"
+                                    android:contentDescription="@string/app_name"
+                                    android:padding="10dp"
+                                    android:src="@drawable/lampomittari_kylma" />
+
+                                <TextView
+                                    android:id="@+id/Tuntuu"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_toEndOf="@id/idKuvake"
+                                    android:drawablePadding="2dp"
+                                    android:text="Tuntuu kuin:"
+                                    android:textSize="19sp" />
+
+                                <!--TÄHÄN TUNTUU KUIN LÄMPÖTILA-->
+                                <TextView
+                                    android:id="@+id/TuntuuKuinTeksti"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/Tuntuu"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_toEndOf="@id/idKuvake"
+                                    android:drawablePadding="2dp"
+                                    android:text=" °C"
+                                    android:textSize="20sp"/>
+                        </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--Kortti 2-->
+                <androidx.cardview.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_below="@id/Kuvakortti1"
+                    android:id="@+id/Kuvakortti2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/idTuntuuKuin"
-                    android:layout_marginStart="100sp"
-                    android:layout_marginEnd="80sp"
-                    android:text="Ilmankosteus"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:layout_marginLeft="20sp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardElevation="8dp"
+                    app:cardMaxElevation="10dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="120sp">
+
+                                <!-- Tässä on kuvake korttiin 2 -->
+                                <ImageView
+                                    android:id="@+id/idKuvake1"
+                                    android:layout_width="120dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginEnd="0.5sp"
+                                    android:layout_marginBottom="15sp"
+                                    android:contentDescription="@string/app_name"
+                                    android:padding="5dp"
+                                    android:src="@drawable/tuuli" />
+                                <TextView
+                                    android:id="@+id/TuulenVoimakkuus"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_toEndOf="@id/idKuvake1"
+                                    android:drawablePadding="2dp"
+                                    android:text="Tuulen voimakkuus:"
+                                    android:textSize="19sp"/>
+
+                                <!--TÄHÄN TUULEN VOIMAKKUUS-->
+                                <TextView
+                                    android:id="@+id/TuulenVoimakkuusTeksti"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/TuulenVoimakkuus"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_toEndOf="@id/idKuvake1"
+                                    android:drawablePadding="2dp"
+                                    android:text=" m/s"
+                                    android:textSize="20sp"/>
+                        </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!--Kortti 3-->
+                <androidx.cardview.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_below="@id/Kuvakortti2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20sp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardElevation="8dp"
+                    app:cardMaxElevation="10dp"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="120sp">
+
+                                <!-- Tässä on kuvake korttiin 3 -->
+                                <ImageView
+                                    android:id="@+id/idKuvake3"
+                                    android:layout_width="120dp"
+                                    android:layout_height="100dp"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_marginEnd="0.5sp"
+                                    android:layout_marginBottom="15sp"
+                                    android:contentDescription="@string/app_name"
+                                    android:padding="5dp"
+                                    android:src="@drawable/vesipisara" />
+                                <TextView
+                                    android:id="@+id/idIlmankosteus"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_toEndOf="@id/idKuvake3"
+                                    android:drawablePadding="2dp"
+                                    android:text="Ilmankosteus"
+                                    android:textSize="19sp"/>
+
+                                <!--TÄHÄN ILMANKOSTEUS-->
+                                <TextView
+                                    android:id="@+id/IlmankosteusTeksti"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/idIlmankosteus"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_toEndOf="@id/idKuvake3"
+                                    android:drawablePadding="2dp"
+                                    android:text=" g/m³"
+                                    android:textSize="20sp"/>
+                        </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
 
         </RelativeLayout>
 
@@ -153,6 +292,7 @@
                     android:layout_marginEnd="30sp"
                     android:text="Hae muiden kaupunkien säätietoja">
                 </Button>
+
         </RelativeLayout>
 
 </RelativeLayout>
