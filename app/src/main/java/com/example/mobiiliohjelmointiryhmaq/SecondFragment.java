@@ -3,9 +3,11 @@ package com.example.mobiiliohjelmointiryhmaq;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -26,7 +28,6 @@ public class SecondFragment extends AppCompatActivity {
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
     String str = formatter.format(date);
 
-    // Yritetään saada näppäimistö katoamaan itsekseen, kun "hae" nappia on painettu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -86,7 +87,18 @@ public class SecondFragment extends AppCompatActivity {
 
             RequestQueue requestQueue = Volley.newRequestQueue(this);
             requestQueue.add(stringRequest);
+            closeKeyboard();
         }
+    }
 
+    // Suljetaan näppäimistö, kun painetaan "hae" nappia
+    private void closeKeyboard() {
+        // Haetaan kohdennettu kohde (hakupalkki) getData funktiosta
+        View view = this.getCurrentFocus();
+
+        if (view != null) {
+            InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            manager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }
