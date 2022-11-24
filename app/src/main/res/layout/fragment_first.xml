@@ -8,23 +8,27 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="450sp"
+            android:layout_height="match_parent"
             android:foregroundGravity="fill">
 
-                <RelativeLayout
+                <ImageView
+                    android:id="@+id/idTaustaVari"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="-950dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/freeuse_from_pexels" />
+
+
+                <RelativeLayout
                     android:id="@+id/idKoti"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:visibility="visible">
 
-                        <ImageView
-                            android:id="@+id/idTaustaVari"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/freeuse_from_pexels" />
-
                         <!--Kotikaupunki kuvake-->
+
+
                         <ImageView
                             android:layout_width="35sp"
                             android:layout_height="wrap_content"
@@ -62,6 +66,7 @@
                             android:text="Kaupunki"
                             android:textColor="@color/black"
                             android:textSize="25sp" />
+
                         <TextView
                             android:id="@+id/idMaa"
                             android:layout_width="264dp"
@@ -90,7 +95,7 @@
                             android:gravity="center_horizontal"
                             android:paddingBottom="10sp"
                             android:text="20"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="60sp" />
 
                         <ImageView
@@ -114,11 +119,11 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/Kuvakortti1"
             android:layout_width="180dp"
-            android:layout_height="110dp"
+            android:layout_height="120dp"
             android:layout_marginLeft="20sp"
-            android:layout_marginTop="430dp"
-            app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="8dp"
+            android:layout_marginTop="380dp"
+            app:cardBackgroundColor="@color/transp"
+            app:cardElevation="0dp"
             app:cardMaxElevation="10dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true">
@@ -133,7 +138,7 @@
                             android:layout_width="56dp"
                             android:layout_height="55dp"
                             android:layout_marginStart="12dp"
-                            android:layout_marginTop="15dp"
+                            android:layout_marginTop="10dp"
                             android:layout_marginEnd="0.5sp"
                             android:layout_marginBottom="15sp"
                             android:contentDescription="@string/app_name"
@@ -170,11 +175,12 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/Kuvakortti2"
             android:layout_width="180dp"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
             android:layout_marginLeft="210sp"
-            android:layout_marginTop="430sp"
-            app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="8dp"
+            android:layout_marginTop="380sp"
+            app:cardBackgroundColor="@color/transp"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="10dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true">
 
@@ -223,12 +229,12 @@
         <!--Kortti 3-->
         <androidx.cardview.widget.CardView
             android:layout_width="180dp"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
             android:layout_below="@id/Kuvakortti2"
             android:layout_marginLeft="20sp"
-            android:layout_marginTop="-20dp"
-            app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="8dp"
+            android:layout_marginTop="-10dp"
+            app:cardBackgroundColor="@color/transp"
+            app:cardElevation="0dp"
             app:cardMaxElevation="10dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true">
@@ -278,12 +284,12 @@
         <!--Kortti 4 -->
         <androidx.cardview.widget.CardView
             android:layout_width="180dp"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
             android:layout_below="@id/Kuvakortti2"
             android:layout_marginLeft="210sp"
-            android:layout_marginTop="-20dp"
-            app:cardBackgroundColor="@android:color/transparent"
-            app:cardElevation="8dp"
+            android:layout_marginTop="-10dp"
+            app:cardBackgroundColor="@color/transp"
+            app:cardElevation="0dp"
             app:cardMaxElevation="10dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true">

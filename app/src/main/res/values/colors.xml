@@ -10,4 +10,5 @@
 
     <color name="VaaleaSininenTausta">#6893EE</color> //tämä lisättiin
     <color name="Tausta">#a9a18c</color>
+    <color name="transp">#66FFFFFF</color>
 </resources>
