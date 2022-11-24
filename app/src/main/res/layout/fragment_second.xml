@@ -22,6 +22,7 @@
         android:visibility="visible"
         >
 
+
         <ImageView
             android:id="@+id/idTaustaVari"
             android:layout_width="match_parent"
@@ -33,67 +34,6 @@
             android:scaleType="centerCrop"
             android:src="@drawable/freeuse_from_pexels" />
 
-        <ImageView
-            android:id="@+id/idPisara"
-            android:layout_width="75dp"
-            android:layout_height="152dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="398dp"
-            android:layout_marginEnd="268dp"
-            android:layout_marginBottom="5sp"
-            android:src="@drawable/vesipisara" />
-
-
-        <TextView
-            android:id="@+id/idKosteus"
-            android:layout_width="wrap_content"
-            android:layout_height="91dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="72dp"
-            android:layout_marginTop="420dp"
-            android:layout_marginEnd="104dp"
-            android:layout_marginBottom="10sp"
-            android:gravity="right"
-            android:padding="5sp"
-            android:text="20"
-            android:textColor="@color/black"
-            android:textSize="70sp" />
-
-        <ImageView
-            android:id="@+id/idTuuli"
-            android:layout_width="75dp"
-            android:layout_height="152dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="509dp"
-            android:layout_marginEnd="268dp"
-            android:layout_marginBottom="5sp"
-            android:src="@drawable/tuuli" />
-
-
-        <TextView
-            android:id="@+id/idTuuliArvo"
-            android:layout_width="wrap_content"
-            android:layout_height="91dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="73dp"
-            android:layout_marginTop="526dp"
-            android:layout_marginEnd="103dp"
-            android:layout_marginBottom="10sp"
-            android:gravity="right"
-            android:padding="5sp"
-            android:text="20"
-            android:textColor="@color/black"
-            android:textSize="70sp" />
 
         <TextView
             android:id="@+id/idDate"
@@ -103,7 +43,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="54dp"
-            android:layout_marginTop="119dp"
+            android:layout_marginTop="89dp"
             android:layout_marginEnd="192dp"
             android:gravity="left"
             android:padding="2sp"
@@ -120,7 +60,7 @@
             android:layout_below="@id/idHakukentta"
             android:layout_alignParentStart="true"
             android:layout_marginStart="54dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="25dp"
             android:gravity="center"
             android:padding="2sp"
             android:text="Kaupunki,"
@@ -137,7 +77,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="54dp"
-            android:layout_marginTop="86dp"
+            android:layout_marginTop="56dp"
             android:layout_marginEnd="190dp"
             android:gravity="center"
             android:padding="2sp"
@@ -203,35 +143,149 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/idLampotila"
-            android:layout_width="266dp"
-            android:layout_height="91dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="208dp"
-            android:layout_marginTop="280dp"
-            android:layout_marginEnd="34dp"
-            android:layout_marginBottom="10sp"
-            android:gravity="right"
-            android:padding="5sp"
-            android:text="°C"
-            android:textColor="@color/black"
-            android:textSize="60sp" />
+        <!--Kortti 1-->
 
-        <ImageView
-            android:id="@+id/idSaaTila"
-            android:layout_width="121dp"
-            android:layout_height="115dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="51dp"
-            android:layout_marginTop="280dp"
-            android:layout_marginEnd="239dp"
-            android:layout_marginBottom="5sp"
-            android:src="@drawable/aurinko" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Kuvakortti11"
+            android:layout_width="381dp"
+            android:layout_height="131dp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="250dp"
+            app:cardBackgroundColor="@color/transp"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="10dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <!-- Tässä on kuvake korttiin 1 -->
+
+            <!--TÄHÄN LÄMPÖTILA -->
+
+            <ImageView
+                android:id="@+id/idSaaTila"
+                android:layout_width="110dp"
+                android:layout_height="102dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0.5sp"
+                android:layout_marginBottom="15sp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/aurinko" />
+
+            <TextView
+                android:id="@+id/idLampotila"
+                android:layout_width="231dp"
+                android:layout_height="65dp"
+                android:layout_below="@id/Tuntuu"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="19dp"
+                android:layout_toEndOf="@id/idKuvake"
+                android:drawablePadding="2dp"
+                android:text="       °C"
+                android:textColor="@color/black"
+                android:textSize="45sp" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <!--Kortti 2-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Kuvakortti22"
+            android:layout_width="381dp"
+            android:layout_height="131dp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="370dp"
+            app:cardBackgroundColor="@color/transp"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="10dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <!-- Tässä on kuvake korttiin 2 -->
+
+            <!--TÄHÄN SADEMÄÄRÄ -->
+
+            <ImageView
+                android:id="@+id/idSaakuvaus"
+                android:layout_width="96dp"
+                android:layout_height="94dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0.5sp"
+                android:layout_marginBottom="15sp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/vesipisara" />
+
+            <TextView
+                android:id="@+id/idKosteus"
+                android:layout_width="231dp"
+                android:layout_height="65dp"
+                android:layout_below="@id/Tuntuu"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="19dp"
+                android:layout_toEndOf="@id/idKuvake"
+                android:drawablePadding="2dp"
+                android:text="       g/m³"
+                android:textColor="@color/black"
+                android:textSize="45sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!--Kortti 3-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Kuvakortti33"
+            android:layout_width="381dp"
+            android:layout_height="131dp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="490dp"
+            app:cardBackgroundColor="@color/transp"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="10dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <!-- Tässä on kuvake korttiin 3 -->
+
+            <!--TÄHÄN SADEMÄÄRÄ -->
+
+            <ImageView
+                android:id="@+id/idTuuli"
+                android:layout_width="98dp"
+                android:layout_height="94dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0.5sp"
+                android:layout_marginBottom="15sp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/tuuli" />
+
+            <TextView
+                android:id="@+id/idTuuliArvo"
+                android:layout_width="231dp"
+                android:layout_height="65dp"
+                android:layout_below="@id/Tuntuu"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="19dp"
+                android:layout_toEndOf="@id/idKuvake"
+                android:drawablePadding="2dp"
+                android:text="       m/s"
+                android:textColor="@color/black"
+                android:textSize="45sp" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <RelativeLayout
+            android:layout_width="159dp"
+            android:layout_height="84dp">
+
+
+        </RelativeLayout>
 
 
     </RelativeLayout>
