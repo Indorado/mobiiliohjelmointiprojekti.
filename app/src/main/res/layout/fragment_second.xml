@@ -60,7 +60,7 @@
             android:layout_marginBottom="10sp"
             android:gravity="right"
             android:padding="5sp"
-            android:text="200"
+            android:text="20"
             android:textColor="@color/black"
             android:textSize="70sp" />
 

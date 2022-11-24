@@ -95,7 +95,7 @@
                             android:layout_marginTop="130sp"
                             android:gravity="center_horizontal"
                             android:paddingBottom="10sp"
-                            android:text="20"
+                            android:text="200"
                             android:textColor="@color/white"
                             android:textSize="60sp" />
 
