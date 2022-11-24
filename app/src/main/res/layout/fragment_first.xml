@@ -20,17 +20,18 @@
                     android:src="@drawable/freeuse_from_pexels" />
 
 
+
                 <RelativeLayout
                     android:id="@+id/idKoti"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:visibility="visible">
 
-                        <!--Kotikaupunki kuvake-->
+                        <!--Kotikaupunki kuvake -->
 
 
                         <ImageView
-                            android:layout_width="35sp"
+                            android:layout_width="34sp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="19sp"
                             android:layout_marginTop="11sp"
