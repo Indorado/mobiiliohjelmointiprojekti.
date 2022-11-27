@@ -123,6 +123,7 @@
 
         </FrameLayout>
 
+        <!-- Teemaan liittyvä kortti -->
         <androidx.cardview.widget.CardView
             android:id="@+id/Teemaosa"
             android:layout_width="match_parent"
