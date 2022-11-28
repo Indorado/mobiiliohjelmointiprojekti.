@@ -113,7 +113,7 @@ public class FirstFragment extends AppCompatActivity {
                 // String cityName = jsonResponse.getString("name");// KAUPUNKI --> Jos haetaan tieto jostain muualta kuin String
 
                 // Määritetään tekstit
-                Lampotila.setText(currentWeather + " °C");
+                Lampotila.setText(currentWeather + "°C");
                 tuntuuKuin.setText(feelsLike + " °C");
                 tuulenNps.setText(wind + " m/s");
                 ilmanKst.setText(humidity + " g/m³");
