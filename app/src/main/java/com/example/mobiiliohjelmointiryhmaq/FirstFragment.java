@@ -40,7 +40,7 @@ import java.util.Date;
 // Kuvioita ja fontteja voisi pienentää?
 
 public class FirstFragment extends AppCompatActivity {
-
+    Button logOutBtn,button;
     private RelativeLayout Koti;
     private ProgressBar LadataanSivu;
     private TextView KaupunginNimi, Lampotila, Ehto, pvm, tuntuuKuin, tuulenNps, ilmanKst, nykyinenMaa, ilmanpaine;
@@ -52,7 +52,7 @@ public class FirstFragment extends AppCompatActivity {
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
     String str = formatter.format(date);
 
-    private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Dubai&units=metric&appid=a012a806d418509506a86dcde2dc62bb";
+    private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Kuopio&units=metric&appid=a012a806d418509506a86dcde2dc62bb";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -147,13 +147,14 @@ public class FirstFragment extends AppCompatActivity {
 
 
                 // Määritetään tekstit
-                Lampotila.setText(currentWeather + "°C");
+                pvm.setText(str);
+                Lampotila.setText(currentWeather + " °C");
                 tuntuuKuin.setText(feelsLike + " °C");
                 tuulenNps.setText(wind + " m/s");
                 ilmanKst.setText(humidity + " g/m³");
                 ilmanpaine.setText(pressure + " Pa");
                 nykyinenMaa.setText(maa);
-                pvm.setText(str);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

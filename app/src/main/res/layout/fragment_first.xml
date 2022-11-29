@@ -10,9 +10,8 @@
             android:id="@+id/idTaustaVari"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="-710dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/freeuse_from_pexels" />
+            android:src="@drawable/mountain" />
 
                 <RelativeLayout
                     android:id="@+id/idKoti"
@@ -31,10 +30,11 @@
                             android:background="@android:color/transparent"
                             android:paddingTop="40sp"
                             android:src="@drawable/kotikaupunkilogo"
-                            app:tint="@color/black" />
+                            app:tint="@color/white" />
 
                         <!--Kaupunki, maa ja pvm tekstit-->
                         <TextView
+                            android:id="@+id/idDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/idMaa"
@@ -44,7 +44,7 @@
                             android:gravity="center"
                             android:padding="2sp"
                             android:text="pvm"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="20sp" />
 
                         <TextView
@@ -56,7 +56,7 @@
                             android:layout_marginTop="43dp"
                             android:padding="2sp"
                             android:text="Kaupunki"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="25sp" />
 
                         <TextView
@@ -70,7 +70,7 @@
                             android:gravity="center"
                             android:padding="2sp"
                             android:text="Maa"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="20sp">
 
                         </TextView>
@@ -111,6 +111,21 @@
                             app:cardPreventCornerOverlap="true"
                             app:cardUseCompatPadding="true">
 
+                                <Button
+                                    android:id="@+id/idLogOut"
+                                    android:layout_width="101dp"
+                                    android:layout_height="wrap_content"
+
+
+                                    android:layout_marginStart="300dp"
+
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="Log out"
+                                    android:textSize="12sp"
+                                    tools:ignore="TouchTargetSizeCheck">
+
+                                </Button>
                         </androidx.cardview.widget.CardView>
                 </RelativeLayout>
 
@@ -353,13 +368,12 @@
         <!-- Nappi mahdollisille asetuksille (?) -->
         <Button
             android:id="@+id/idHaeLisaaBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="80sp"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="351dp"
-            android:layout_marginEnd="10dp"
-            android:text="+"
-            android:textSize="25sp"
+            android:layout_marginStart="200dp"
+            android:layout_marginEnd="5dp"
+            android:text="Hae"
+            android:textSize="12sp"
             tools:ignore="TouchTargetSizeCheck">
 
         </Button>
