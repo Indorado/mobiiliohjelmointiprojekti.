@@ -55,7 +55,6 @@
                             android:layout_marginStart="54dp"
                             android:layout_marginTop="43dp"
                             android:padding="2sp"
-                            android:text="Kaupunki"
                             android:textColor="@color/white"
                             android:textSize="25sp" />
 
@@ -373,6 +372,17 @@
             android:layout_marginStart="200dp"
             android:layout_marginEnd="5dp"
             android:text="Hae"
+            android:textSize="12sp"
+            tools:ignore="TouchTargetSizeCheck">
+
+        </Button>
+        <Button
+            android:id="@+id/idKotiKaupunki"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="5dp"
+            android:text="Lisää Kapunki"
             android:textSize="12sp"
             tools:ignore="TouchTargetSizeCheck">
 

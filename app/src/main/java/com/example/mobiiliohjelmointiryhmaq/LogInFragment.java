@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LogInFragment extends AppCompatActivity {
     private FirebaseAuth auth;
@@ -29,37 +30,44 @@ public class LogInFragment extends AppCompatActivity {
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
         signupRedirectText = findViewById(R.id.signupRedirectText);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = loginEmail.getText().toString();
-                String pass = loginPassword.getText().toString();
-                if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    if (!pass.isEmpty()) {
-                        auth.signInWithEmailAndPassword(email, pass)
-                                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                                    @Override
-                                    public void onSuccess(AuthResult authResult) {
-                                        Toast.makeText(LogInFragment.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(LogInFragment.this, FirstFragment.class));
-                                        finish();
-                                    }
-                                }).addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(LogInFragment.this, "Login Failed", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            startActivity(new Intent(LogInFragment.this,FirstFragment.class));
+            Toast.makeText(LogInFragment.this, "Logged in", Toast.LENGTH_SHORT).show();
+        } else {
+            loginButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String email = loginEmail.getText().toString();
+                    String pass = loginPassword.getText().toString();
+                    if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        if (!pass.isEmpty()) {
+                            auth.signInWithEmailAndPassword(email, pass)
+                                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                        @Override
+                                        public void onSuccess(AuthResult authResult) {
+                                            Toast.makeText(LogInFragment.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(LogInFragment.this, FirstFragment.class));
+                                            finish();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(LogInFragment.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                        } else {
+                            loginPassword.setError("Password cannot be empty");
+                        }
+                    } else if(email.isEmpty()) {
+                        loginEmail.setError("Email cannot be empty");
                     } else {
-                        loginPassword.setError("Password cannot be empty");
+                        loginEmail.setError("Please enter valid email");
                     }
-                } else if(email.isEmpty()) {
-                    loginEmail.setError("Email cannot be empty");
-                } else {
-                    loginEmail.setError("Please enter valid email");
                 }
-            }
-        });
+            });
+        }
+
         signupRedirectText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
