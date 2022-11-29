@@ -9,20 +9,25 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class SecondFragment extends AppCompatActivity {
     EditText muokkaaKaupunkia;
     TextView nykyinenKaupunki, nykyinenMaa, pvm, lampotila, tuulenNps, ilmanKst; //tuntuuKuin
+    ImageView saatila;
     Date date = new Date();
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
@@ -41,6 +46,7 @@ public class SecondFragment extends AppCompatActivity {
         lampotila = findViewById(R.id.idLampotila);
         tuulenNps = findViewById(R.id.idTuuliArvo);
         ilmanKst = findViewById(R.id.idKosteus);
+        saatila = findViewById(R.id.idSaaTila);
         // tuntuuKuin = findViewById(R.id.idTuntuuKuin);
     }
 
@@ -63,6 +69,7 @@ public class SecondFragment extends AppCompatActivity {
                     JSONObject jsonMain = jsonResponse.getJSONObject("main");
                     JSONObject jsonObjectSys = jsonResponse.getJSONObject("sys");
                     JSONObject jsonWind = jsonResponse.getJSONObject("wind");
+                    JSONArray jsonWeather = jsonResponse.getJSONArray("weather");
 
                     String wind = jsonWind.getString("speed");// TUULENNOPEUS
                     String humidity = jsonMain.getString("humidity");// KOSTEUS
@@ -70,6 +77,15 @@ public class SecondFragment extends AppCompatActivity {
                     String maa = jsonObjectSys.getString("country");// MAA
                     String currentWeather = jsonMain.getString("temp");// LÄMPÖTILA
                     String cityName = jsonResponse.getString("name");// KAUPUNKI
+                    JSONObject object = jsonWeather.getJSONObject(0);
+
+                    String icons = object.getString("icon");
+
+
+
+                    String imageUri = "https://openweathermap.org/img/wn/" + icons + "@2x.png";
+                    Picasso.get().load(imageUri).into(saatila);
+                    Picasso.get().load(imageUri).resize(380, 380).into(saatila);
 
                     lampotila.setText(currentWeather + " °C");
                     nykyinenKaupunki.setText(cityName + ",");

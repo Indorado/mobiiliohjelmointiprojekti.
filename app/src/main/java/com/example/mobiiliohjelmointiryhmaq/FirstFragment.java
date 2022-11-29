@@ -2,6 +2,8 @@ package com.example.mobiiliohjelmointiryhmaq;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,16 +23,23 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 // Kuvioita ja fontteja voisi pienentää?
 
 public class FirstFragment extends AppCompatActivity {
-    private Button button; // Mennään seuravaan näyttöön.
 
     private RelativeLayout Koti;
     private ProgressBar LadataanSivu;
@@ -43,49 +52,57 @@ public class FirstFragment extends AppCompatActivity {
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
     String str = formatter.format(date);
 
-    private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Kuopio&units=metric&appid=a012a806d418509506a86dcde2dc62bb";
+    private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Dubai&units=metric&appid=a012a806d418509506a86dcde2dc62bb";
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_first);
 
-        KaupunginNimi = findViewById(R.id.idNykyinenKaupunki);
-        Lampotila = findViewById(R.id.idLampotila);
-        TaustaVariIV = findViewById(R.id.idTaustaVari);
-        SaaTilaIV = findViewById(R.id.idSaaTila);
-        tuntuuKuin = findViewById(R.id.TuntuuKuinTeksti);
-        tuulenNps = findViewById(R.id.TuulenVoimakkuusTeksti);
-        ilmanKst = findViewById(R.id.IlmankosteusTeksti);
-        nykyinenMaa = findViewById(R.id.idMaa);
-        ilmanpaine = findViewById(R.id.IlmanPaineTeksti);
+            setContentView(R.layout.fragment_first);
+            KaupunginNimi = findViewById(R.id.idNykyinenKaupunki);
+            Lampotila = findViewById(R.id.idLampotila);
+            TaustaVariIV = findViewById(R.id.idTaustaVari);
+            SaaTilaIV = findViewById(R.id.idSaaTila);
+            tuntuuKuin = findViewById(R.id.TuntuuKuinTeksti);
+            tuulenNps = findViewById(R.id.TuulenVoimakkuusTeksti);
+            ilmanKst = findViewById(R.id.IlmankosteusTeksti);
+            nykyinenMaa = findViewById(R.id.idMaa);
+            ilmanpaine = findViewById(R.id.IlmanPaineTeksti);
+            SaaTilaIV = findViewById(R.id.idSaaTila);
+            Button logOutBtn = (Button) findViewById(R.id.idLogOut);
+            pvm = findViewById(R.id.idDate);
+            Button button = (Button) findViewById(R.id.idHaeLisaaBtn);
+        // Mennään seuravaan näyttöön.
 
-        pvm = findViewById(R.id.idDate);
-        button = (Button) findViewById(R.id.idHaeLisaaBtn);
 
-        // Ei tarvita??
-        //Koti = findViewById(R.id.idKoti);
-        //LadataanSivu = findViewById(R.id.idPBLoading);
-        //Ehto = findViewById(R.id.idEhto);
-        //MuokkaaKaupunkia = findViewById(R.id.idMuokkaaKaupunkia);
-        //RecycleSaaEnnuste = findViewById(R.id.idRecycleSaaEnnuste);
-        //EtsiLogoIV = findViewById(R.id.idEtsiLogo);
+            // Ei tarvita??
+            //Koti = findViewById(R.id.idKoti);
+            //LadataanSivu = findViewById(R.id.idPBLoading);
+            //Ehto = findViewById(R.id.idEhto);
+            //MuokkaaKaupunkia = findViewById(R.id.idMuokkaaKaupunkia);
+            //RecycleSaaEnnuste = findViewById(R.id.idRecycleSaaEnnuste);
+            //EtsiLogoIV = findViewById(R.id.idEtsiLogo);
 
-        // Datan näyttäminen
-        getData();
-
-        // Toinen sivu
-        button.setOnClickListener(new View.OnClickListener() {
+            // Datan näyttäminen
+            getData();
+            // Toinen sivu
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    goToSecondFragment();
+                }
+            });
+        logOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goToSecondFragment();
+                goToLogInFragment();
             }
         });
 
-        // Sijaintitiedot pyydetään vain ensimmäisen kerran sovelluksen käynnistämisen yhteydessä
-        accessLocation();
+            // Sijaintitiedot pyydetään vain ensimmäisen kerran sovelluksen käynnistämisen yhteydessä
+            accessLocation();
     }
 
     @SuppressLint("SetTextI18n")
@@ -98,10 +115,15 @@ public class FirstFragment extends AppCompatActivity {
                 // Haetaan rajapinnan taulu tietyn kaupungin säätilasta
                 JSONObject jsonResponse = new JSONObject(response);
 
+
                 // Haetaan taulun sisällä olevia tauluja
                 JSONObject jsonMain = jsonResponse.getJSONObject("main");
                 JSONObject jsonObjectSys = jsonResponse.getJSONObject("sys");
                 JSONObject jsonWind = jsonResponse.getJSONObject("wind");
+                JSONArray jsonWeather = jsonResponse.getJSONArray("weather");
+
+
+
 
                 // Haetaan taulun sisällä olevien taulujen objecteja
                 String currentWeather = jsonMain.getString("temp"); // LÄMPÖTILA
@@ -110,7 +132,19 @@ public class FirstFragment extends AppCompatActivity {
                 String feelsLike = jsonMain.getString("feels_like"); // TUNTUU KUIN
                 String pressure = jsonMain.getString("pressure");
                 String maa = jsonObjectSys.getString("country");// MAA
+
                 // String cityName = jsonResponse.getString("name");// KAUPUNKI --> Jos haetaan tieto jostain muualta kuin String
+                JSONObject object = jsonWeather.getJSONObject(0);
+
+                String icons = object.getString("icon");
+
+
+
+                String imageUri = "https://openweathermap.org/img/wn/" + icons + "@2x.png";
+                Picasso.get().load(imageUri).into(SaaTilaIV);
+                Picasso.get().load(imageUri).resize(380, 380).into(SaaTilaIV);
+
+
 
                 // Määritetään tekstit
                 Lampotila.setText(currentWeather + " °C");
@@ -119,7 +153,6 @@ public class FirstFragment extends AppCompatActivity {
                 ilmanKst.setText(humidity + " g/m³");
                 ilmanpaine.setText(pressure + " Pa");
                 nykyinenMaa.setText(maa);
-
                 pvm.setText(str);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -135,6 +168,11 @@ public class FirstFragment extends AppCompatActivity {
     // Lähdetään toiselle sivulle
     public void goToSecondFragment() {
         Intent intent = new Intent(this, SecondFragment.class);
+        startActivity(intent);
+    }
+    // Kirjaudutaan ulos
+    public void goToLogInFragment() {
+        Intent intent = new Intent(this, LogInFragment.class);
         startActivity(intent);
     }
 
