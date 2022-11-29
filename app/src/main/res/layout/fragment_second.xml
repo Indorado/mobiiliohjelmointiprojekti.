@@ -28,11 +28,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="-360dp"
             android:layout_marginEnd="0dp"
-
             android:scaleType="centerCrop"
-            android:src="@drawable/mountain" />
+            android:src="@drawable/freeuse_from_pexels" />
 
 
         <TextView
@@ -43,7 +42,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="54dp"
-            android:layout_marginTop="89dp"
+            android:layout_marginTop="59dp"
             android:layout_marginEnd="192dp"
             android:gravity="left"
             android:padding="2sp"
@@ -60,7 +59,7 @@
             android:layout_below="@id/idHakukentta"
             android:layout_alignParentStart="true"
             android:layout_marginStart="54dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="15dp"
             android:gravity="center"
             android:padding="2sp"
             android:text="Kaupunki,"
@@ -77,7 +76,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="54dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="36dp"
             android:layout_marginEnd="190dp"
             android:gravity="center"
             android:padding="2sp"
@@ -136,12 +135,28 @@
                     android:layout_height="wrap_content"
                     android:text="HAE"
                     android:id="@+id/btnGet"
-                    android:onClick="getData">
+                    android:onClick="getData"
+                    android:backgroundTint="?attr/colorPrimaryVariant">
                 </Button>
 
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
+
+        <!-- Teemaan liittyvä kortti -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Teemaosa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="-5dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginEnd="-5dp"
+            android:layout_marginBottom="-5dp"
+            android:backgroundTint="?attr/colorSecondary"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+        </androidx.cardview.widget.CardView>
 
         <!--Kortti 1-->
 
@@ -151,7 +166,7 @@
             android:layout_height="131dp"
             android:layout_marginLeft="20sp"
             android:layout_marginTop="250dp"
-            app:cardBackgroundColor="@color/transp"
+            android:backgroundTint="?attr/colorSurface"
             app:cardElevation="0dp"
             app:cardMaxElevation="10dp"
             app:cardPreventCornerOverlap="true"
@@ -197,7 +212,7 @@
             android:layout_height="131dp"
             android:layout_marginLeft="20sp"
             android:layout_marginTop="370dp"
-            app:cardBackgroundColor="@color/transp"
+            android:backgroundTint="?attr/colorSurface"
             app:cardElevation="0dp"
             app:cardMaxElevation="10dp"
             app:cardPreventCornerOverlap="true"
@@ -242,7 +257,7 @@
             android:layout_height="131dp"
             android:layout_marginLeft="20sp"
             android:layout_marginTop="490dp"
-            app:cardBackgroundColor="@color/transp"
+            android:backgroundTint="?attr/colorSurface"
             app:cardElevation="0dp"
             app:cardMaxElevation="10dp"
             app:cardPreventCornerOverlap="true"

@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple">#FF3700B3</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#000000</color>
+    <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lavender">#8692f7</color>
+
     <color name="VaaleaSininenTausta">#6893EE</color> //tämä lisättiin
     <color name="Tausta">#a9a18c</color>
-    <color name="transp">#FFFFFF</color>
+    <color name="transp">#80FFFFFF</color>
+
+    <color name="btncolor"> #00000000</color>
+    <color name="btncolor2"> #66000000</color>
+    <color name="btncolor3"> #453d6c</color>
+    <color name="btncolor4"> #887f80</color>
+    <color name="btncolor5"> #e3d4d5</color>
+
 </resources>
