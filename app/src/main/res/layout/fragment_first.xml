@@ -287,8 +287,8 @@
                             android:layout_toEndOf="@id/idKuvake3"
                             android:drawablePadding="2dp"
                             android:text="Ilmankosteus"
-                            android:textSize="13dp"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black"
+                            android:textSize="13dp" />
 
 
                         <!--TÄHÄN ILMANKOSTEUS-->
