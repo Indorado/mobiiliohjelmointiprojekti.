@@ -47,7 +47,7 @@
             android:padding="2sp"
             android:text="Päivämäärä"
             android:textAlignment="viewStart"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20sp"
             tools:ignore="RtlCompat" />
 
@@ -63,7 +63,7 @@
             android:padding="2sp"
             android:text="Kaupunki,"
             android:textAlignment="viewStart"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20sp"
             tools:ignore="DuplicateIds,RtlCompat" />
 
@@ -81,7 +81,7 @@
             android:padding="2sp"
             android:text="Maa"
             android:textAlignment="viewStart"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="20sp"
             tools:ignore="RtlCompat" />
 
@@ -113,7 +113,7 @@
                 android:background="@android:color/transparent"
                 android:hint="Etsi"
                 android:padding="0sp"
-                android:textColorHint="@color/black"
+                android:textColorHint="@color/white"
                 app:hintTextColor="@color/black">
 
                 <EditText
