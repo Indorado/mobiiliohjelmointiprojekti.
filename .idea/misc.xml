@@ -6,13 +6,6 @@
         <entry key="..\:/Users/Oskar/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/layout/activity_main.xml" value="0.35833333333333334" />
         <entry key="..\:/Users/Oskar/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/layout/fragment_first.xml" value="0.33" />
         <entry key="..\:/Users/Oskar/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/layout/fragment_second.xml" value="0.35833333333333334" />
-        <entry key="..\:/Users/Oskar/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ2/app/src/main/res/drawable/custom_edittext.xml" value="0.1" />
-        <entry key="..\:/Users/Oskar/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ2/app/src/main/res/layout/activity_sign_up.xml" value="0.14473684210526316" />
-        <entry key="..\:/Users/Oskar/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ2/app/src/main/res/layout/fragment_first.xml" value="0.25" />
-        <entry key="..\:/Users/Oskar/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ2/app/src/main/res/layout/fragment_login.xml" value="0.17553191489361702" />
-        <entry key="..\:/Users/Oskar/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ2/app/src/main/res/layout/fragment_second.xml" value="0.1" />
-        <entry key="..\:/Users/Oskar/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ2/app/src/main/res/layout/fragment_user.xml" value="0.2604166666666667" />
-        <entry key="..\:/Users/Oskar/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ2/app/src/main/res/layout/login_fragment.xml" value="0.17553191489361702" />
         <entry key="..\:/Users/johan/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/drawable/navigointi.xml" value="0.1955" />
         <entry key="..\:/Users/johan/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/layout/activity_main.xml" value="0.21105072463768115" />
         <entry key="..\:/Users/johan/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/layout/fragment_first.xml" value="0.264" />
@@ -23,8 +16,9 @@
         <entry key="..\:/Users/konni/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/drawable/aurinko.xml" value="0.22" />
         <entry key="..\:/Users/konni/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22" />
         <entry key="..\:/Users/konni/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/konni/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/layout/fragment_first.xml" value="0.2825520833333333" />
+        <entry key="..\:/Users/konni/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/layout/fragment_first.xml" value="0.24561403508771928" />
         <entry key="..\:/Users/konni/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/layout/fragment_second.xml" value="0.264" />
+        <entry key="..\:/Users/konni/AndroidStudioProjects/mobiiliohjelmointiRyhmaQ/app/src/main/res/xml/scrollbar.xml" value="0.24564102564102563" />
       </map>
     </option>
   </component>
