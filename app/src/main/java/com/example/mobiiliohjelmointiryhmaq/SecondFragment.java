@@ -91,7 +91,7 @@ public class SecondFragment extends AppCompatActivity {
                     nykyinenKaupunki.setText(cityName + ",");
                     nykyinenMaa.setText(maa);
                     tuulenNps.setText(wind + " m/s");
-                    ilmanKst.setText(humidity + "g/m³");
+                    ilmanKst.setText(humidity + " g/m³");
                     pvm.setText(str);
                     //tuntuuKuin.setText(feelsLike + " °C");
 
