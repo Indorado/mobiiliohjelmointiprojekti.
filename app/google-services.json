@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "830913915066",
+    "project_id": "hattivahti",
+    "storage_bucket": "hattivahti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830913915066:android:5c2c50d4c8a4e567ecfa83",
+        "android_client_info": {
+          "package_name": "com.example.mobiiliohjelmointiryhmaq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830913915066-3auekhc2ftuc46abhvqd7p303eo0fdd1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXwRm4O0wKbgONdsEhSJdaiKapF7J12Vw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830913915066-3auekhc2ftuc46abhvqd7p303eo0fdd1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
