@@ -111,7 +111,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/Teemaosa"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="1010dp"
             android:layout_marginStart="-5dp"
             android:layout_marginTop="-5dp"
             android:layout_marginEnd="-5dp"
@@ -125,9 +125,7 @@
                 android:layout_width="101dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="300dp"
-
                 android:layout_marginTop="3dp"
-
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="5dp"
                 android:text="Log out"
