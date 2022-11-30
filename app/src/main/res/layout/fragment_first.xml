@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -7,8 +9,6 @@
 
 
 <RelativeLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
@@ -21,123 +21,124 @@
         android:src="@drawable/mountain" />
 
 
-        <RelativeLayout
-            android:id="@+id/idKoti"
+    <!--Kortti 1-->
+
+    <RelativeLayout
+        android:id="@+id/idKoti"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <!--Kotikaupunki kuvake -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19sp"
+            android:layout_marginTop="31sp"
+            android:layout_marginEnd="14sp"
+            android:layout_marginBottom="14sp"
+            android:background="@android:color/transparent"
+            android:paddingTop="40sp"
+            android:src="@drawable/kotikaupunkilogo"
+            app:tint="@color/white" />
+
+        <!--Kaupunki, maa ja pvm tekstit-->
+        <TextView
+            android:id="@+id/idDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idMaa"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="190dp"
+            android:gravity="center"
+            android:padding="2sp"
+            android:text="pvm"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/idNykyinenKaupunki"
+            android:layout_width="259dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="54dp"
+            android:layout_marginTop="63dp"
+            android:padding="2sp"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/idMaa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idNykyinenKaupunki"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="190dp"
+            android:gravity="center"
+            android:padding="2sp"
+            android:text="Maa"
+            android:textColor="@color/white"
+            android:textSize="20sp">
+
+        </TextView>
+
+        <!-- Lämpötila ja placeholder kuvake-->
+
+        <TextView
+            android:id="@+id/idLampotila"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/idMaa"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="130sp"
+            android:text="°C"
+            android:textColor="@color/white"
+            android:textSize="60sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageView
+            android:id="@+id/idSaaTila"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="140dp"
+            android:paddingBottom="5sp"
+            android:src="@mipmap/ic_launcher" />
+
+        <!-- Teemaan liittyvä kortti -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Teemaosa"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible">
+            android:layout_marginStart="-5dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginEnd="-5dp"
+            android:layout_marginBottom="-5dp"
+            android:backgroundTint="?attr/colorSecondary"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
 
-                <!--Kotikaupunki kuvake -->
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="19sp"
-                    android:layout_marginTop="31sp"
-                    android:layout_marginEnd="14sp"
-                    android:layout_marginBottom="14sp"
-                    android:background="@android:color/transparent"
-                    android:paddingTop="40sp"
-                    android:src="@drawable/kotikaupunkilogo"
-                    app:tint="@color/white" />
+            <Button
+                android:id="@+id/idLogOut"
+                android:layout_width="101dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="300dp"
 
-                <!--Kaupunki, maa ja pvm tekstit-->
-                <TextView
-                    android:id="@+id/idDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/idMaa"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginEnd="190dp"
-                    android:gravity="center"
-                    android:padding="2sp"
-                    android:text="pvm"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+                android:layout_marginTop="3dp"
 
-                <TextView
-                    android:id="@+id/idNykyinenKaupunki"
-                    android:layout_width="259dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="54dp"
-                    android:layout_marginTop="63dp"
-                    android:padding="2sp"
-                    android:textColor="@color/white"
-                    android:textSize="25sp" />
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Log out"
+                android:textSize="12sp"
+                tools:ignore="TouchTargetSizeCheck">
 
-                <TextView
-                    android:id="@+id/idMaa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/idNykyinenKaupunki"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginEnd="190dp"
-                    android:gravity="center"
-                    android:padding="2sp"
-                    android:text="Maa"
-                    android:textColor="@color/white"
-                    android:textSize="20sp">
+            </Button>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
 
-                </TextView>
-
-                <!-- Lämpötila ja placeholder kuvake-->
-
-                <TextView
-                    android:id="@+id/idLampotila"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/idMaa"
-                    android:layout_centerInParent="true"
-                    android:layout_marginTop="130sp"
-                    android:text="°C"
-                    android:textColor="@color/white"
-                    android:textSize="60sp"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-                <ImageView
-                    android:id="@+id/idSaaTila"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="140dp"
-                    android:paddingBottom="5sp"
-                    android:src="@mipmap/ic_launcher" />
-
-                <!-- Teemaan liittyvä kortti -->
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/Teemaosa"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="-5dp"
-                    android:layout_marginTop="-5dp"
-                    android:layout_marginEnd="-5dp"
-                    android:layout_marginBottom="-5dp"
-                    android:backgroundTint="?attr/colorSecondary"
-                    app:cardPreventCornerOverlap="true"
-                    app:cardUseCompatPadding="true">
-
-                        <Button
-                            android:id="@+id/idLogOut"
-                            android:layout_width="101dp"
-                            android:layout_height="wrap_content"
-
-
-                            android:layout_marginStart="300dp"
-
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginBottom="5dp"
-                            android:text="Log out"
-                            android:textSize="12sp"
-                            tools:ignore="TouchTargetSizeCheck">
-
-                        </Button>
-                </androidx.cardview.widget.CardView>
-        </RelativeLayout>
-
-        <!--Kortti 1-->
-        <androidx.cardview.widget.CardView
+    <androidx.cardview.widget.CardView
             android:id="@+id/Kuvakortti1"
             android:layout_width="180dp"
             android:layout_height="120dp"
@@ -380,6 +381,7 @@
             android:layout_marginStart="200dp"
             android:layout_marginEnd="5dp"
             android:text="Hae"
+            android:layout_marginTop="3dp"
             android:textSize="12sp"
             tools:ignore="TouchTargetSizeCheck">
 
@@ -389,6 +391,7 @@
             android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
+            android:layout_marginTop="3dp"
             android:layout_marginEnd="5dp"
             android:text="Lisää Kapunki"
             android:textSize="12sp"
