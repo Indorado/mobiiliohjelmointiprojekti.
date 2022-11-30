@@ -48,7 +48,7 @@ public class FirstFragment extends AppCompatActivity {
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
     String str = formatter.format(date);
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    private String kotiKaupunki = user.getDisplayName();
+    private final String kotiKaupunki = user.getDisplayName();
     private final String url = "https://api.openweathermap.org/data/2.5/weather?q="+ kotiKaupunki +"&units=metric&appid=a012a806d418509506a86dcde2dc62bb";
 
     @SuppressLint("MissingInflatedId")
@@ -72,21 +72,6 @@ public class FirstFragment extends AppCompatActivity {
             pvm = findViewById(R.id.idDate);
             Button button = (Button) findViewById(R.id.idHaeLisaaBtn);
             Button addCity = (Button) findViewById(R.id.idKotiKaupunki);
-
-            //FIREBASE
-
-
-
-        // Mennään seuravaan näyttöön.
-
-
-            // Ei tarvita??
-            //Koti = findViewById(R.id.idKoti);
-            //LadataanSivu = findViewById(R.id.idPBLoading);
-            //Ehto = findViewById(R.id.idEhto);
-            //MuokkaaKaupunkia = findViewById(R.id.idMuokkaaKaupunkia);
-            //RecycleSaaEnnuste = findViewById(R.id.idRecycleSaaEnnuste);
-            //EtsiLogoIV = findViewById(R.id.idEtsiLogo);
 
             // Datan näyttäminen
             getData();
