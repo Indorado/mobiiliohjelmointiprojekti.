@@ -2,8 +2,6 @@ package com.example.mobiiliohjelmointiryhmaq;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -30,17 +29,14 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 // Kuvioita ja fontteja voisi pienentää?
 
 public class FirstFragment extends AppCompatActivity {
-    Button logOutBtn,button;
+    Button logOutBtn,button, addCity;
     private RelativeLayout Koti;
     private ProgressBar LadataanSivu;
     private TextView KaupunginNimi, Lampotila, Ehto, pvm, tuntuuKuin, tuulenNps, ilmanKst, nykyinenMaa, ilmanpaine;
@@ -51,8 +47,9 @@ public class FirstFragment extends AppCompatActivity {
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
     String str = formatter.format(date);
-
-    private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Kuopio&units=metric&appid=a012a806d418509506a86dcde2dc62bb";
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private String kotiKaupunki = user.getDisplayName();
+    private final String url = "https://api.openweathermap.org/data/2.5/weather?q="+ kotiKaupunki +"&units=metric&appid=a012a806d418509506a86dcde2dc62bb";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -74,6 +71,12 @@ public class FirstFragment extends AppCompatActivity {
             Button logOutBtn = (Button) findViewById(R.id.idLogOut);
             pvm = findViewById(R.id.idDate);
             Button button = (Button) findViewById(R.id.idHaeLisaaBtn);
+            Button addCity = (Button) findViewById(R.id.idKotiKaupunki);
+
+            //FIREBASE
+
+
+
         // Mennään seuravaan näyttöön.
 
 
@@ -87,6 +90,12 @@ public class FirstFragment extends AppCompatActivity {
 
             // Datan näyttäminen
             getData();
+            addCity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToUser();
+            }
+        });
             // Toinen sivu
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -115,14 +124,11 @@ public class FirstFragment extends AppCompatActivity {
                 // Haetaan rajapinnan taulu tietyn kaupungin säätilasta
                 JSONObject jsonResponse = new JSONObject(response);
 
-
                 // Haetaan taulun sisällä olevia tauluja
                 JSONObject jsonMain = jsonResponse.getJSONObject("main");
                 JSONObject jsonObjectSys = jsonResponse.getJSONObject("sys");
                 JSONObject jsonWind = jsonResponse.getJSONObject("wind");
                 JSONArray jsonWeather = jsonResponse.getJSONArray("weather");
-
-
 
 
                 // Haetaan taulun sisällä olevien taulujen objecteja
@@ -138,12 +144,9 @@ public class FirstFragment extends AppCompatActivity {
 
                 String icons = object.getString("icon");
 
-
-
                 String imageUri = "https://openweathermap.org/img/wn/" + icons + "@2x.png";
                 Picasso.get().load(imageUri).into(SaaTilaIV);
                 Picasso.get().load(imageUri).resize(380, 380).into(SaaTilaIV);
-
 
 
                 // Määritetään tekstit
@@ -154,6 +157,7 @@ public class FirstFragment extends AppCompatActivity {
                 ilmanKst.setText(humidity + " g/m³");
                 ilmanpaine.setText(pressure + " Pa");
                 nykyinenMaa.setText(maa);
+                KaupunginNimi.setText(kotiKaupunki);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -164,17 +168,23 @@ public class FirstFragment extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
-        KaupunginNimi.setText("Kuopio,");//Voidaan mahdollisesti hakea GPS avulla, jos jää aikaa.
+        //Voidaan mahdollisesti hakea GPS avulla, jos jää aikaa.
     }
     // Lähdetään toiselle sivulle
     public void goToSecondFragment() {
         Intent intent = new Intent(this, SecondFragment.class);
         startActivity(intent);
     }
+    public void goToUser() {
+        Intent intent = new Intent(this, UserFragment.class);
+        startActivity(intent);
+    }
     // Kirjaudutaan ulos
     public void goToLogInFragment() {
+        FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(this, LogInFragment.class);
         startActivity(intent);
+        Toast.makeText(FirstFragment.this, "Logged out", Toast.LENGTH_SHORT).show();
     }
 
     // Sijaintitiedot
