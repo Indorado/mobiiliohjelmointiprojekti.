@@ -1,6 +1,7 @@
 package com.example.mobiiliohjelmointiryhmaq;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -25,8 +26,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class SecondFragment extends AppCompatActivity {
+    CardView kortti5, kortti6, kortti7, kortti8;
     EditText muokkaaKaupunkia;
-    TextView nykyinenKaupunki, nykyinenMaa, pvm, lampotila, tuulenNps, ilmanKst; //tuntuuKuin
+    TextView nykyinenKaupunki, nykyinenMaa, pvm, lampotila, tuulenNps, ilmanKst, tuntuuKuin;
     ImageView saatila;
     Date date = new Date();
     @SuppressLint("SimpleDateFormat")
@@ -47,7 +49,18 @@ public class SecondFragment extends AppCompatActivity {
         tuulenNps = findViewById(R.id.idTuuliArvo);
         ilmanKst = findViewById(R.id.idKosteus);
         saatila = findViewById(R.id.idSaaTila);
-        // tuntuuKuin = findViewById(R.id.idTuntuuKuin);
+        tuntuuKuin = findViewById(R.id.idTuntuuKuin);
+
+        kortti5 = (CardView) findViewById(R.id.Kuvakortti11);
+        kortti6 = (CardView) findViewById(R.id.Kuvakortti22);
+        kortti7 = (CardView) findViewById(R.id.Kuvakortti33);
+        kortti8 = (CardView) findViewById(R.id.Kuvakortti44);
+
+        // Määritetään kortit näkymättömiksi jos kotikaupunki on tyhjä
+        kortti5.setVisibility(View.GONE);
+        kortti6.setVisibility(View.GONE);
+        kortti7.setVisibility(View.GONE);
+        kortti8.setVisibility(View.GONE);
     }
 
     @SuppressLint("SetTextI18n")
@@ -73,7 +86,7 @@ public class SecondFragment extends AppCompatActivity {
 
                     String wind = jsonWind.getString("speed");// TUULENNOPEUS
                     String humidity = jsonMain.getString("humidity");// KOSTEUS
-                    //String feelsLike = jsonMain.getString("feels_like");// TUNTUU KUIN... EI HAETA VIELÄ!
+                    String feelsLike = jsonMain.getString("feels_like");// TUNTUU KUIN... EI HAETA VIELÄ!
                     String maa = jsonObjectSys.getString("country");// MAA
                     String currentWeather = jsonMain.getString("temp");// LÄMPÖTILA
                     String cityName = jsonResponse.getString("name");// KAUPUNKI
@@ -81,19 +94,23 @@ public class SecondFragment extends AppCompatActivity {
 
                     String icons = object.getString("icon");
 
-
-
                     String imageUri = "https://openweathermap.org/img/wn/" + icons + "@2x.png";
                     Picasso.get().load(imageUri).into(saatila);
                     Picasso.get().load(imageUri).resize(380, 380).into(saatila);
 
                     lampotila.setText(currentWeather + " °C");
+                    tuntuuKuin.setText(feelsLike + " °C");
                     nykyinenKaupunki.setText(cityName + ",");
                     nykyinenMaa.setText(maa);
                     tuulenNps.setText(wind + " m/s");
                     ilmanKst.setText(humidity + " g/m³");
                     pvm.setText(str);
-                    //tuntuuKuin.setText(feelsLike + " °C");
+
+                    // Määritetään kortit näkyviin, kun kaupunkia on haettu
+                    kortti5.setVisibility(View.VISIBLE);
+                    kortti6.setVisibility(View.VISIBLE);
+                    kortti7.setVisibility(View.VISIBLE);
+                    kortti8.setVisibility(View.VISIBLE);
 
                 } catch (Exception e) {
                     e.printStackTrace();

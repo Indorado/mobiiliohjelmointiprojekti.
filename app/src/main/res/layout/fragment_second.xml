@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ScrollView01"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:scrollbarThumbVertical="@xml/scrollbar">
 
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
@@ -52,7 +51,6 @@
             android:layout_marginEnd="192dp"
             android:gravity="left"
             android:padding="2sp"
-            android:text="Päivämäärä"
             android:textAlignment="viewStart"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -68,7 +66,6 @@
             android:layout_marginTop="15dp"
             android:gravity="center"
             android:padding="2sp"
-            android:text="Kaupunki,"
             android:textAlignment="viewStart"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -86,7 +83,6 @@
             android:layout_marginEnd="190dp"
             android:gravity="center"
             android:padding="2sp"
-            android:text="Maa"
             android:textAlignment="viewStart"
             android:textColor="@color/white"
             android:textSize="20sp"
@@ -108,7 +104,7 @@
                 android:layout_weight="0.5"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_etsi_logo_icons8"
-                app:tint="@color/black"
+                app:tint="@color/white"
                 />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -121,11 +117,11 @@
                 android:hint="Etsi"
                 android:padding="0sp"
                 android:textColorHint="@color/white"
-                app:hintTextColor="@color/black">
+                app:hintTextColor="@color/white">
 
                 <EditText
                     android:id="@+id/idMuokkaaKaupunkia"
-                    android:layout_width="match_parent"
+                    android:layout_width="334dp"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
                     android:ems="15"
@@ -133,7 +129,7 @@
                     android:inputType="text"
                     android:padding="25sp"
                     android:singleLine="true"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     tools:ignore="SpeakableTextPresentCheck" />
                 <Button
@@ -150,19 +146,6 @@
         </LinearLayout>
 
         <!-- Teemaan liittyvä kortti -->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/Teemaosa"
-            android:layout_width="match_parent"
-            android:layout_height="1010dp"
-            android:layout_marginStart="-5dp"
-            android:layout_marginTop="-5dp"
-            android:layout_marginEnd="-5dp"
-            android:layout_marginBottom="-5dp"
-            android:backgroundTint="?attr/colorSecondary"
-            app:cardPreventCornerOverlap="true"
-            app:cardUseCompatPadding="true">
-
-        </androidx.cardview.widget.CardView>
 
         <!--Kortti 1-->
 
@@ -203,7 +186,6 @@
                 android:layout_marginTop="19dp"
                 android:layout_toEndOf="@id/idKuvake"
                 android:drawablePadding="2dp"
-                android:text="       °C"
                 android:textColor="@color/black"
                 android:textSize="45sp" />
 
@@ -226,10 +208,10 @@
 
             <!-- Tässä on kuvake korttiin 2 -->
 
-            <!--TÄHÄN SADEMÄÄRÄ -->
+            <!--TÄHÄN TUNTUU KUIN -->
 
             <ImageView
-                android:id="@+id/idSaakuvaus"
+                android:id="@+id/idTuntuu"
                 android:layout_width="96dp"
                 android:layout_height="94dp"
                 android:layout_marginStart="12dp"
@@ -238,10 +220,22 @@
                 android:layout_marginBottom="15sp"
                 android:contentDescription="@string/app_name"
                 android:padding="10dp"
-                android:src="@drawable/vesipisara" />
+                android:src="@drawable/lampomittari_kylma" />
 
             <TextView
-                android:id="@+id/idKosteus"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/Tuntuu"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/idKuvake"
+                android:drawablePadding="2dp"
+                android:text="Tuntuu kuin"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/idTuntuuKuin"
                 android:layout_width="231dp"
                 android:layout_height="65dp"
                 android:layout_below="@id/Tuntuu"
@@ -249,7 +243,6 @@
                 android:layout_marginTop="19dp"
                 android:layout_toEndOf="@id/idKuvake"
                 android:drawablePadding="2dp"
-                android:text="       g/m³"
                 android:textColor="@color/black"
                 android:textSize="45sp" />
 
@@ -271,7 +264,66 @@
 
             <!-- Tässä on kuvake korttiin 3 -->
 
-            <!--TÄHÄN SADEMÄÄRÄ -->
+            <!--TÄHÄN ILMANKOSTEUS -->
+
+            <ImageView
+                android:id="@+id/idSaakuvaus"
+                android:layout_width="98dp"
+                android:layout_height="94dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0.5sp"
+                android:layout_marginBottom="15sp"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:src="@drawable/vesipisara" />
+
+            <TextView
+                android:id="@+id/idKosteus"
+                android:layout_width="231dp"
+                android:layout_height="65dp"
+                android:layout_below="@id/Tuntuu"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="19dp"
+                android:layout_toEndOf="@id/idKuvake"
+                android:drawablePadding="2dp"
+                android:textColor="@color/black"
+                android:textSize="45sp" />
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/Tuntuu"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/idKuvake"
+                android:drawablePadding="2dp"
+                android:text="Ilmankosteus"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:gravity="center"></TextView>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Kuvakortti44"
+            android:layout_width="381dp"
+            android:layout_height="131dp"
+            android:layout_marginLeft="20sp"
+            android:layout_marginTop="610dp"
+            android:backgroundTint="?attr/colorSurface"
+            app:cardElevation="0dp"
+            app:cardMaxElevation="10dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+            <!-- Tässä on kuvake korttiin 3 -->
+
+            <!--TÄHÄN TUULEN NOPEUS -->
 
             <ImageView
                 android:id="@+id/idTuuli"
@@ -286,6 +338,18 @@
                 android:src="@drawable/tuuli" />
 
             <TextView
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@id/Tuntuu"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/idKuvake"
+                android:drawablePadding="2dp"
+                android:text="Tuulen nopeus"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
+            <TextView
                 android:id="@+id/idTuuliArvo"
                 android:layout_width="231dp"
                 android:layout_height="65dp"
@@ -294,22 +358,39 @@
                 android:layout_marginTop="19dp"
                 android:layout_toEndOf="@id/idKuvake"
                 android:drawablePadding="2dp"
-                android:text="       m/s"
                 android:textColor="@color/black"
                 android:textSize="45sp" />
 
         </androidx.cardview.widget.CardView>
 
-
         <RelativeLayout
             android:layout_width="159dp"
             android:layout_height="84dp">
-
-
         </RelativeLayout>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Teemaosa"
+            android:layout_width="match_parent"
+            android:layout_height="1010dp"
+            android:layout_marginStart="-5dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginEnd="-5dp"
+            android:layout_marginBottom="-5dp"
+            android:backgroundTint="?attr/colorSecondary"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Mobiiliohjelmointi I syksy 2022 ryhmä Q"
+            android:textColor="@color/white"
+            android:layout_marginTop="960dp">
+        </TextView>
 
     </RelativeLayout>
-
 </RelativeLayout>
 </ScrollView>

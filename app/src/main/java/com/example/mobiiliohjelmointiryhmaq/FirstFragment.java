@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
@@ -36,6 +37,7 @@ import java.util.Objects;
 // Kuvioita ja fontteja voisi pienentää?
 
 public class FirstFragment extends AppCompatActivity {
+    CardView kortti1, kortti2, kortti3, kortti4;
     Button logOutBtn,button, addCity;
     private RelativeLayout Koti;
     private ProgressBar LadataanSivu;
@@ -58,6 +60,7 @@ public class FirstFragment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
             setContentView(R.layout.fragment_first);
+
             KaupunginNimi = findViewById(R.id.idNykyinenKaupunki);
             Lampotila = findViewById(R.id.idLampotila);
             TaustaVariIV = findViewById(R.id.idTaustaVari);
@@ -73,30 +76,54 @@ public class FirstFragment extends AppCompatActivity {
             Button button = (Button) findViewById(R.id.idHaeLisaaBtn);
             Button addCity = (Button) findViewById(R.id.idKotiKaupunki);
 
-            // Datan näyttäminen
-            getData();
-            addCity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToUser();
+            // Määritetään kortit, jotta voidaan tehdä päänäytöstä tyhjä
+            // jos kotikaupunkia ei ole määritetty
+            kortti1 = (CardView) findViewById(R.id.Kuvakortti1);
+            kortti2 = (CardView) findViewById(R.id.Kuvakortti2);
+            kortti3 = (CardView) findViewById(R.id.Kuvakortti3);
+            kortti4 = (CardView) findViewById(R.id.Kuvakortti4);
+
+            // Määritetään päivämäärä
+            pvm.setText(str);
+
+            // Määritetään kortit näkymättömiksi jos kotikaupunki on tyhjä
+            if ( kotiKaupunki == "" ) {
+                KaupunginNimi.setText("Lisää kaupunki");
+                kortti1.setVisibility(View.GONE);
+                kortti2.setVisibility(View.GONE);
+                kortti3.setVisibility(View.GONE);
+                kortti4.setVisibility(View.GONE);
+            } else {
+                kortti1.setVisibility(View.VISIBLE);
+                kortti2.setVisibility(View.VISIBLE);
+                kortti3.setVisibility(View.VISIBLE);
+                kortti4.setVisibility(View.VISIBLE);
+
+                // Datan näyttäminen
+                getData();
             }
-        });
+
+            addCity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    goToUser();
+                }
+            });
+
             // Toinen sivu
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    goToSecondFragment();
+                        goToSecondFragment();
+                    }
+            });
+
+            logOutBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    goToLogInFragment();
                 }
             });
-        logOutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToLogInFragment();
-            }
-        });
-
-            // Sijaintitiedot pyydetään vain ensimmäisen kerran sovelluksen käynnistämisen yhteydessä
-            accessLocation();
     }
 
     @SuppressLint("SetTextI18n")
@@ -135,7 +162,6 @@ public class FirstFragment extends AppCompatActivity {
 
 
                 // Määritetään tekstit
-                pvm.setText(str);
                 Lampotila.setText(currentWeather + " °C");
                 tuntuuKuin.setText(feelsLike + " °C");
                 tuulenNps.setText(wind + " m/s");
@@ -170,35 +196,5 @@ public class FirstFragment extends AppCompatActivity {
         Intent intent = new Intent(this, LogInFragment.class);
         startActivity(intent);
         Toast.makeText(FirstFragment.this, "Logged out", Toast.LENGTH_SHORT).show();
-    }
-
-    // Sijaintitiedot
-    public void accessLocation() {
-        ActivityResultLauncher<String[]> locationPermissionRequest =
-                registerForActivityResult(new ActivityResultContracts
-                        .RequestMultiplePermissions(), result -> {
-                    Boolean fineLocationGranted = null;
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                        fineLocationGranted = result.getOrDefault(
-                                Manifest.permission.ACCESS_FINE_LOCATION, false);
-                    }
-                    Boolean coarseLocationGranted = null;
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                        coarseLocationGranted = result.getOrDefault(
-                                Manifest.permission.ACCESS_COARSE_LOCATION,false);
-                    }
-                    if (fineLocationGranted != null && fineLocationGranted) {
-                        // Precise location access granted.
-                    } else if (coarseLocationGranted != null && coarseLocationGranted) {
-                        // Only approximate location access granted.
-                    } else {
-                        // No location access granted.
-                    }
-                });
-
-        locationPermissionRequest.launch(new String[] {
-                android.Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-        });
     }
 }
