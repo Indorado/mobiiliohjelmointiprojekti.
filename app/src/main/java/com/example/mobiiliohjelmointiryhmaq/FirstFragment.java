@@ -83,25 +83,16 @@ public class FirstFragment extends AppCompatActivity {
             kortti3 = (CardView) findViewById(R.id.Kuvakortti3);
             kortti4 = (CardView) findViewById(R.id.Kuvakortti4);
 
-            // Määritetään päivämäärä
-            pvm.setText(str);
-
-            // Määritetään kortit näkymättömiksi jos kotikaupunki on tyhjä
             if ( kotiKaupunki == "" ) {
                 KaupunginNimi.setText("Lisää kaupunki");
                 kortti1.setVisibility(View.GONE);
                 kortti2.setVisibility(View.GONE);
                 kortti3.setVisibility(View.GONE);
                 kortti4.setVisibility(View.GONE);
-            } else {
-                kortti1.setVisibility(View.VISIBLE);
-                kortti2.setVisibility(View.VISIBLE);
-                kortti3.setVisibility(View.VISIBLE);
-                kortti4.setVisibility(View.VISIBLE);
-
-                // Datan näyttäminen
-                getData();
             }
+
+            // Datan näyttäminen
+            getData();
 
             addCity.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -142,7 +133,6 @@ public class FirstFragment extends AppCompatActivity {
                 JSONObject jsonWind = jsonResponse.getJSONObject("wind");
                 JSONArray jsonWeather = jsonResponse.getJSONArray("weather");
 
-
                 // Haetaan taulun sisällä olevien taulujen objecteja
                 String currentWeather = jsonMain.getString("temp"); // LÄMPÖTILA
                 String wind = jsonWind.getString("speed");// TUULENNOPEUS
@@ -160,7 +150,6 @@ public class FirstFragment extends AppCompatActivity {
                 Picasso.get().load(imageUri).into(SaaTilaIV);
                 Picasso.get().load(imageUri).resize(380, 380).into(SaaTilaIV);
 
-
                 // Määritetään tekstit
                 Lampotila.setText(currentWeather + " °C");
                 tuntuuKuin.setText(feelsLike + " °C");
@@ -169,6 +158,13 @@ public class FirstFragment extends AppCompatActivity {
                 ilmanpaine.setText(pressure + " Pa");
                 nykyinenMaa.setText(maa);
                 KaupunginNimi.setText(kotiKaupunki);
+                pvm.setText(str);
+
+                // Määritetään kortit näkyviksi
+                kortti1.setVisibility(View.VISIBLE);
+                kortti2.setVisibility(View.VISIBLE);
+                kortti3.setVisibility(View.VISIBLE);
+                kortti4.setVisibility(View.VISIBLE);
 
             } catch (Exception e) {
                 e.printStackTrace();
